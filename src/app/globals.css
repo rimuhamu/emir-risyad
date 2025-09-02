@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -41,11 +41,34 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Custom colors*/
+  --color-custom-green: #8bf0ba;
+  --color-ironic-blue: #0e0fed;
+  --color-mountain-shadow-blue: #101357;
+  --color-golden-rod-yellow: #fbaf08;
+  --color-blue-underling: #94f0f1;
+  --color-pinky-ring: #f2b1d8;
+  --color-egg-yellow: #ffdc6a;
+
+  /* Custom animations*/
+  --animate-pulse-scale: pulse-scale 5s ease-in-out infinite;
+  @keyframes pulse-scale {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+  }
 }
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: #101357;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
