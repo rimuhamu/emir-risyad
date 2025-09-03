@@ -20,7 +20,7 @@ export function Navbar({ onSectionClick }: NavbarProps) {
   };
 
   return (
-    <nav className='fixed top-0 left-0 h-full w-64 bg-transparent backdrop-blur-sm flex items-center justify-center z-50'>
+    <nav className='fixed top-0 left-0 h-full w-64 bg-transparent flex items-center justify-center z-50'>
       <ul className='flex flex-col items-start leading-none text-2xl uppercase space-y-6 p-8'>
         {menuItems.map((item, index) => (
           <li
