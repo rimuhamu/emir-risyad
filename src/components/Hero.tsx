@@ -16,12 +16,6 @@ export function Hero() {
       hoverColor: 'hover:text-white hover:bg-yellow-600',
     },
     {
-      name: 'Instagram',
-      icon: '/icons/ig.svg',
-      url: 'https://www.instagram.com/emir.rsyd/',
-      hoverColor: 'hover:text-white hover:bg-yellow-600',
-    },
-    {
       name: 'Email',
       icon: '/icons/email.svg',
       url: 'mailto:emirrsyd@gmail.com',
@@ -31,15 +25,16 @@ export function Hero() {
   return (
     <div className='min-h-screen flex items-center justify-center relative'>
       <div className='relative'>
-        <div className='w-[500px] h-[500px] rounded-full border-8 border-golden-rod-yellow/40 scale-95 bg-transparent flex items-center justify-center'></div>
-        {/* Text overlay */}
-        <div className='absolute inset-0 gap-8 flex items-center justify-center'>
-          <h1 className='font-light font-montserrat text-8xl text-white tracking-wide whitespace-nowrap'>
+        <div className='w-[500px] h-[500px] rounded-full border-8 border-golden-rod-yellow/70 scale-100 bg-transparent flex items-center justify-center'>
+          {/* Text overlay */}
+          <div className='absolute inset-0 gap-8 flex items-center justify-center'>
+            {/* <h1 className='font-light font-montserrat text-8xl text-white tracking-wide whitespace-nowrap'>
             EMIR
-          </h1>
-          <h1 className='font-bold font-montserrat text-8xl text-white tracking-wide whitespace-nowrap'>
-            RISYAD
-          </h1>
+          </h1> */}
+            <h1 className='font-bold font-montserrat text-8xl text-white tracking-wide whitespace-nowrap'>
+              EMIR RISYAD
+            </h1>
+          </div>
         </div>
       </div>
       {/* Social Media Links */}
