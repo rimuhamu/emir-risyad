@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Button } from './ui/button';
 
 interface NavbarProps {
   onSectionClick?: (sectionId: string) => void;
 }
 
 export function Navbar({ onSectionClick }: NavbarProps) {
+  const [isOpen, setIsOpen] = useState(false);
   const menuItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
@@ -16,26 +18,92 @@ export function Navbar({ onSectionClick }: NavbarProps) {
     if (onSectionClick) {
       onSectionClick(id);
     }
+
+    setIsOpen(false);
+  };
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <nav className='fixed top-0 left-0 h-full w-64 bg-transparent flex items-center justify-center z-50'>
-      <ul className='flex flex-col items-start leading-none text-2xl uppercase space-y-6 p-8'>
-        {menuItems.map((item, index) => (
-          <li
-            key={item.id}
-            className='relative group cursor-pointer'>
-            <div className='absolute top-0 w-1 h-full -translate-x-4 bg-golden-rod-yellow'></div>
-            <a
-              onClick={() => handleClick(item.id)}
-              className='relative block cursor-pointer overflow-hidden'>
-              <span className='block text-white transition-all duration-300 group-hover:text-golden-rod-yellow'>
-                {item.label}
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <>
+      <Button
+        onClick={toggleMenu}
+        className={`
+          fixed top-6 left-6 z-[60] w-12 h-12 
+          bg-golden-rod-yellow/20 backdrop-blur-sm
+          border-2 border-golden-rod-yellow/50 
+          rounded-full flex flex-col items-center justify-center 
+          transition-all duration-300 hover:scale-110 
+          hover:border-golden-rod-yellow hover:bg-golden-rod-yellow/30
+          group
+          ${isOpen ? 'border-golden-rod-yellow bg-golden-rod-yellow/40' : ''}
+        `}>
+        <div className='w-6 h-4 flex flex-col justify-between'>
+          <span
+            className={`w-full h-0.5 bg-golden-rod-yellow transition-all duration-300 origin-center ${
+              isOpen ? 'rotate-45 translate-y-2' : ''
+            }`}
+          />
+          <span
+            className={`
+              w-full h-0.5 bg-golden-rod-yellow transition-all duration-300
+              ${isOpen ? 'opacity-0' : 'opacity-100'}
+            `}
+          />
+          <span
+            className={`
+              w-full h-0.5 bg-golden-rod-yellow transition-all duration-300 origin-center
+              ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}
+            `}
+          />
+        </div>
+      </Button>
+
+      {isOpen && (
+        <div
+          className='fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-100
+          '
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+      <nav
+        className={`
+          fixed top-0 left-0 h-full w-80 bg-white/10
+          border-r border-golden-rod-yellow/20
+          flex items-center justify-center z-50
+          transition-transform duration-100 ease-out
+          ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+        `}>
+        <ul className='flex flex-col items-start leading-none text-2xl uppercase space-y-8 p-8'>
+          {menuItems.map((item, index) => (
+            <li
+              key={item.id}
+              className={`
+                relative group cursor-pointer
+                transform transition-all duration-300 ease-out
+                ${
+                  isOpen
+                    ? 'translate-x-0 opacity-100'
+                    : '-translate-x-8 opacity-0'
+                }
+              `}
+              style={{
+                transitionDelay: isOpen ? `${index * 100}ms` : '0ms',
+              }}>
+              <div className='absolute top-0 w-1 h-full -translate-x-6 bg-golden-rod-yellow transition-all duration-300 group-hover:w-2 group-hover:-translate-x-7'></div>
+              <a
+                onClick={() => handleClick(item.id)}
+                className='relative block cursor-pointer overflow-hidden pl-4'>
+                <span className='block text-white transition-all duration-300 group-hover:text-golden-rod-yellow'>
+                  {item.label}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </>
   );
 }
