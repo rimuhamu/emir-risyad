@@ -2,6 +2,7 @@
 import { About } from '@/components/About';
 import { Hero } from '@/components/Hero';
 import { Navbar } from '@/components/Navbar';
+import { Projects } from '@/components/Projects';
 
 export default function Home() {
   const scrollToSection = (sectionId: string) => {
@@ -18,6 +19,9 @@ export default function Home() {
       </section>
       <section id='about'>
         <About />
+      </section>
+      <section id='projects'>
+        <Projects />
       </section>
     </div>
   );
