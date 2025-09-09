@@ -31,7 +31,8 @@ export function Navbar({ onSectionClick }: NavbarProps) {
       <Button
         onClick={toggleMenu}
         className={`
-          fixed top-6 left-6 z-[60] w-12 h-12 
+          fixed top-4 left-4 sm:top-6 sm:left-6 z-[60]
+          w-10 h-10 sm:w-12 sm:h-12 
           bg-golden-rod-yellow/20 backdrop-blur-sm
           border-2 border-golden-rod-yellow/50 
           rounded-full flex flex-col items-center justify-center 
@@ -40,7 +41,7 @@ export function Navbar({ onSectionClick }: NavbarProps) {
           group
           ${isOpen ? 'border-golden-rod-yellow bg-golden-rod-yellow/40' : ''}
         `}>
-        <div className='w-6 h-4 flex flex-col justify-between'>
+        <div className='w-5 h-3 sm:w-6 sm:h-4 flex flex-col justify-between'>
           <span
             className={`w-full h-0.5 bg-golden-rod-yellow transition-all duration-300 origin-center ${
               isOpen ? 'rotate-45 translate-y-2' : ''
@@ -70,13 +71,19 @@ export function Navbar({ onSectionClick }: NavbarProps) {
       )}
       <nav
         className={`
-          fixed top-0 left-0 h-full w-80 bg-white/10
+          fixed top-0 left-0 h-full 
+          w-64 sm:w-72 lg:w-80
+        bg-white/10
           border-r border-golden-rod-yellow/20
           flex items-center justify-center z-50
           transition-transform duration-100 ease-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
         `}>
-        <ul className='flex flex-col items-start leading-none text-2xl uppercase space-y-8 p-8'>
+        <ul
+          className='flex flex-col items-start leading-none 
+          text-xl sm:text-2xl 
+          uppercase space-y-6 sm:space-y-8 
+          p-6 sm:p-8'>
           {menuItems.map((item, index) => (
             <li
               key={item.id}
@@ -92,10 +99,14 @@ export function Navbar({ onSectionClick }: NavbarProps) {
               style={{
                 transitionDelay: isOpen ? `${index * 100}ms` : '0ms',
               }}>
-              <div className='absolute top-0 w-1 h-full -translate-x-6 bg-golden-rod-yellow transition-all duration-300 group-hover:w-2 group-hover:-translate-x-7'></div>
+              <div
+                className='absolute top-0 w-1 h-full 
+                -translate-x-4 sm:-translate-x-6 
+                bg-golden-rod-yellow transition-all duration-300 
+                group-hover:w-2 group-hover:-translate-x-5 sm:group-hover:-translate-x-7'></div>
               <a
                 onClick={() => handleClick(item.id)}
-                className='relative block cursor-pointer overflow-hidden pl-4'>
+                className='relative block cursor-pointer overflow-hidden pl-3 sm:pl-4'>
                 <span className='block text-white transition-all duration-300 group-hover:text-golden-rod-yellow'>
                   {item.label}
                 </span>
