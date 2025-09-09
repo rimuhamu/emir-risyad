@@ -8,18 +8,29 @@ interface NavbarProps {
 export function Navbar({ onSectionClick }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const menuItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'cv', label: 'CV' },
+    { id: 'home', label: 'Home', type: 'section' },
+    { id: 'about', label: 'About', type: 'section' },
+    { id: 'projects', label: 'Projects', type: 'section' },
+    { id: 'cv', label: 'CV', type: 'download' },
   ];
 
-  const handleClick = (id: string) => {
-    if (onSectionClick) {
+  const handleClick = (id: string, type: string) => {
+    if (type === 'download') {
+      handleCVDownload();
+    } else if (onSectionClick) {
       onSectionClick(id);
     }
-
     setIsOpen(false);
+  };
+
+  const handleCVDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/files/CV_Emir_Risyad.pdf';
+    link.download = 'Emir_Risyad_CV.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const toggleMenu = () => {
@@ -105,10 +116,35 @@ export function Navbar({ onSectionClick }: NavbarProps) {
                 bg-golden-rod-yellow transition-all duration-300 
                 group-hover:w-2 group-hover:-translate-x-5 sm:group-hover:-translate-x-7'></div>
               <a
-                onClick={() => handleClick(item.id)}
+                onClick={() => handleClick(item.id, item.type)}
                 className='relative block cursor-pointer overflow-hidden pl-3 sm:pl-4'>
-                <span className='block text-white transition-all duration-300 group-hover:text-golden-rod-yellow'>
+                <span
+                  className='
+                  text-white transition-all duration-300 
+                  group-hover:text-golden-rod-yellow flex items-center gap-2
+                '>
                   {item.label}
+                  {item.type === 'download' && (
+                    <svg
+                      width='16'
+                      height='16'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='currentColor'
+                      strokeWidth='2'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      className='opacity-70 group-hover:opacity-100 transition-opacity duration-300'>
+                      <path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4' />
+                      <polyline points='7,10 12,15 17,10' />
+                      <line
+                        x1='12'
+                        y1='15'
+                        x2='12'
+                        y2='3'
+                      />
+                    </svg>
+                  )}
                 </span>
               </a>
             </li>
