@@ -25,7 +25,7 @@ export function Navbar({ onSectionClick }: NavbarProps) {
 
   const handleCVDownload = () => {
     const link = document.createElement('a');
-    link.href = '/files/CV_Emir_Risyad.pdf';
+    link.href = '/files/CV_EMIR_RISYAD.pdf';
     link.download = 'Emir_Risyad_CV.pdf';
     link.target = '_blank';
     document.body.appendChild(link);
