@@ -52,7 +52,7 @@ export function Projects() {
       status: 'Live',
       category: 'API',
       github: 'https://github.com/rimuhamu/medrec-api',
-      liveLink: 'https://www.shinjang.site/',
+      liveLink: 'https://medrec-api.onrender.com/reference/',
     },
   ];
 
