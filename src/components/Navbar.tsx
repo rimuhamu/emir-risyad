@@ -55,7 +55,7 @@ export function Navbar({ onSectionClick }: NavbarProps) {
         <div className='w-5 h-3 sm:w-6 sm:h-4 flex flex-col justify-between'>
           <span
             className={`w-full h-0.5 bg-golden-rod-yellow transition-all duration-300 origin-center ${
-              isOpen ? 'rotate-45 translate-y-2' : ''
+              isOpen ? 'rotate-45 translate-y-1.5 md:translate-y-2' : ''
             }`}
           />
           <span
@@ -67,7 +67,7 @@ export function Navbar({ onSectionClick }: NavbarProps) {
           <span
             className={`
               w-full h-0.5 bg-golden-rod-yellow transition-all duration-300 origin-center
-              ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}
+              ${isOpen ? '-rotate-45 -translate-y-1 md:-translate-y-1.5' : ''}
             `}
           />
         </div>

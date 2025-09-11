@@ -84,7 +84,7 @@ export function About() {
                   <span>English</span>{' '}
                   <span className='hidden sm:inline'>•</span>
                   <span className='sm:hidden'>,</span>
-                  <span>German</span> •{' '}
+                  <span>German</span>{' '}
                   <span className='hidden sm:inline'>•</span>
                   <span className='sm:hidden'>,</span>
                   <span>Indonesian</span>
