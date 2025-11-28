@@ -43,14 +43,13 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* Custom colors - Softer "Modern Slate" Palette */
-  --color-custom-green: #6ee7b7; /* Soft Emerald/Mint */
-  --color-ironic-blue: #60a5fa; /* Soft Cornflower Blue */
-  --color-mountain-shadow-blue: #1e293b; /* Deep Slate Navy (Softer than original #101357) */
-  --color-golden-rod-yellow: #fbbf24; /* Warm Amber */
-  --color-blue-underling: #67e8f9; /* Soft Cyan */
-  --color-pinky-ring: #f472b6; /* Soft Rose */
-  --color-egg-yellow: #fde047; /* Soft Pastel Yellow */
+  --color-custom-green: #6ee7b7;
+  --color-ironic-blue: #60a5fa;
+  --color-mountain-shadow-blue: #1e293b;
+  --color-golden-rod-yellow: #fbbf24;
+  --color-blue-underling: #67e8f9;
+  --color-pinky-ring: #f472b6;
+  --color-egg-yellow: #fde047;
 
   /* Custom animations*/
   --animate-pulse-scale: pulse-scale 5s ease-in-out infinite;
@@ -69,7 +68,6 @@
 
 :root {
   --radius: 0.625rem;
-  /* Updated base background to match the new softer slate theme */
   --background: #1e293b;
   --foreground: oklch(0.985 0 0);
   --card: oklch(1 0 0);
